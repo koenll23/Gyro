@@ -1,6 +1,6 @@
 # Gyro
 
-**Gyro** is a custom, from-scratch built animatronic head created at age 15.  
+**Gyro** is a custom, from-scratch built animatronic head. 
 Project start date: **23-11-2025**
 
 This repository documents the mechanical design, 3D files, electronics, and control code used to build the animatronic.  
