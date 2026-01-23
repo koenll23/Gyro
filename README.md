@@ -25,8 +25,8 @@ This repository will continue to grow with:
 
 ### Completed Milestones
 - **Eye mechanism finished** — 23-12-2025  
-- **Full head structure finished** — 15-12-2025  
 - **Jaw mechanism finished** — 03-01-2026  
+- **Full head structure finished** — 15-1-2026  
 
 ---
 
