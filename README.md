@@ -1,79 +1,46 @@
 # Gyro
 
-**Gyro** is a custom, from-scratch built animatronic head. 
+**Gyro** is a custom, from-scratch built animatronic head.  
 Project start date: **23-11-2025**
 
-This repository documents the mechanical design, 3D files, electronics, and control code used to build the animatronic.  
+This repository documents the mechanical design, 3D files, electronics, and control code used to build the animatronic head.  
 It also serves as a time-stamped development log showing the evolution of the project.
 
 ---
 
-## Project Description
+## Project Overview
 
 Gyro is an animatronic head featuring articulated eyes and a movable jaw, designed and built without pre-existing kits.  
-The project focuses on mechanical reliability, modular design, and expandability toward a full animatronic body.
+The project focuses on mechanical reliability, modular construction, and future expandability toward a humanoid animatronic platform.
 
-This repository will continue to grow with:
-- Design changes and iterations  
-- Photos and videos  
-- Demo, test, and calibration code  
-- Hardware experiments and improvements  
+All mechanical parts, electronics integration, and control logic were designed and implemented from scratch.
 
 ---
 
 ## Project Status
 
-### Completed Milestones
-- **Eye mechanism finished** — 23-12-2025  
-- **Jaw mechanism finished** — 03-01-2026  
-- **Full head structure finished** — 15-1-2026  
+**Status:** On hold
+
+Development is currently paused indefinitely.  
+The repository remains public as documentation and reference material.  
+No active updates are planned at this time, though the project may resume in the future.
+
+The animatronic head is mechanically complete and functional in its current state.
 
 ---
 
-## Roadmap / Deadlines
+## Completed Milestones
 
-Planned future milestones:
-
-- **Full face features + addons + neck**  
-  Deadline: **10-02-2026**
-
-- **Body / frame / main chassis / torso**  
-  Deadline: **01-04-2026**
-
-Dates may shift slightly as the project evolves, but all changes will be documented.
-
----
-
-## Changelog
-
-### 23-11-2025
-- Project started
-- Initial design concepts and mechanical layout
-
-### 15-12-2025
-- Full animatronic head structure completed
-
-### 23-12-2025
-- Eye mechanism finalized and tested
-
-### 03-01-2026
-- Jaw mechanism finalized
-
-Future changes will include additional iterations, refinements, and software updates.
-
----
-
-## Repository Contents (planned)
-
-- `/3mf` — 3D printable design files  
-- `/photos` — Build progress and final results  
-- `/code` — Demo, test, and calibration code  
-- `/docs` — Notes, wiring diagrams, and design explanations  
+- **Project started** — 23-11-2025  
+- **Eye mechanism completed and tested** — 23-12-2025  
+- **Jaw mechanism completed** — 03-01-2026  
+- **Full animatronic head structure completed** — 15-01-2026  
 
 ---
 
 ## Notes
 
-This repository functions as both documentation and proof-of-work, with all files time-stamped through GitHub version control.
+This repository functions as documentation and proof-of-work.  
+All files and changes are time-stamped through GitHub version control.
 
-The project is ongoing.
+The project is archived in a stable, functional state.
