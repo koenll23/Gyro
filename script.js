@@ -3,21 +3,24 @@ import { OrbitControls } from "https://unpkg.com/three@0.160.0/examples/jsm/cont
 import { OBJLoader } from "https://unpkg.com/three@0.160.0/examples/jsm/loaders/OBJLoader.js";
 import { MTLLoader } from "https://unpkg.com/three@0.160.0/examples/jsm/loaders/MTLLoader.js";
 
-/* Scene */
+/* ---------- Scene ---------- */
+
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x111111);
 
-/* Camera */
+/* ---------- Camera ---------- */
+
 const camera = new THREE.PerspectiveCamera(
     60,
-    window.innerWidth/window.innerHeight,
-    0.1,
+    window.innerWidth / window.innerHeight,
+    0.01,
     1000
 );
 
 camera.position.set(0,0.3,0.8);
 
-/* Renderer */
+/* ---------- Renderer ---------- */
+
 const renderer = new THREE.WebGLRenderer({
     antialias:true
 });
@@ -25,22 +28,30 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-/* Controls */
+/* ---------- Controls ---------- */
+
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
-controls.autoRotate = false;
 
-/* Lighting */
-scene.add(new THREE.AmbientLight(0xffffff, 1.8));
+/* ---------- Lighting ---------- */
 
-const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+scene.add(new THREE.AmbientLight(0xffffff, 2));
+
+const dirLight = new THREE.DirectionalLight(0xffffff, 2.5);
 dirLight.position.set(2,3,3);
 scene.add(dirLight);
 
-/* Load Model */
+/* ---------- Load Model ---------- */
+
 const mtlLoader = new MTLLoader();
 
-mtlLoader.load("./Models/head.mtl", (materials)=>{
+console.log("Starting model load...");
+
+mtlLoader.load("./Models/head.mtl",
+
+(materials)=>{
+
+    console.log("MTL loaded");
 
     materials.preload();
 
@@ -48,32 +59,45 @@ mtlLoader.load("./Models/head.mtl", (materials)=>{
     objLoader.setMaterials(materials);
 
     objLoader.load("./Models/head.obj",
+
         (object)=>{
+
+            console.log("OBJ loaded");
 
             scene.add(object);
 
-            /* Center Model */
+            /* Center model */
             const box = new THREE.Box3().setFromObject(object);
             const center = box.getCenter(new THREE.Vector3());
             object.position.sub(center);
 
-            /* Scale Model */
+            /* Normalize scale */
             const size = box.getSize(new THREE.Vector3()).length();
             object.scale.multiplyScalar(1/size);
 
         },
+
         (xhr)=>{
-            console.log("Model loading:",
-                (xhr.loaded/xhr.total*100).toFixed(2)+"%");
+            console.log("OBJ Loading:",
+                ((xhr.loaded/xhr.total)*100).toFixed(2)+"%");
         },
+
         (err)=>{
-            console.error("OBJ Load Error:", err);
+            console.error("OBJ LOAD ERROR:", err);
         }
+
     );
 
-});
+},
 
-/* Animation Loop */
+(err)=>{
+    console.error("MTL LOAD ERROR:", err);
+}
+
+);
+
+/* ---------- Animation ---------- */
+
 function animate(){
     requestAnimationFrame(animate);
     controls.update();
@@ -82,7 +106,8 @@ function animate(){
 
 animate();
 
-/* Resize Handler */
+/* ---------- Resize ---------- */
+
 window.addEventListener("resize",()=>{
     camera.aspect = window.innerWidth/window.innerHeight;
     camera.updateProjectionMatrix();
